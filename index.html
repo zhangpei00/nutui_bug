@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>职位列表</title>
+      <link rel="stylesheet" href="css/style_3.2.2.css" />
+	  <script src="js/vue.js"></script>
+	  <script src="js/nutui_3.2.2.js"></script>
+</head>
+<body>
+	 <div id="app">
+		  <div>
+		    <nut-menu>
+				<nut-menu-item v-model="value1" @@change="selectChange1" :options="options1"  /> 
+				<nut-menu-item v-model="value2" @@change="selectChange2" :options="options2"  />
+			 </nut-menu>
+		  </div>
+    </div>
+	
+	 <script>
+	  const app = {
+		    data() {
+				  return {
+					 
+						options1: [{text: '全部渠道', value: 99},{text: '校招类', value: 0},{text: '社招类', value: 1}],
+						options2: [{text: '全部职位', value: 'b'}],
+						value1: 99,
+						value2:'b',
+				  }
+		        },
+			methods:{
+				  selectChange1(e){ // 选择职位渠道后
+						 //console.log('val', e);
+					 },
+					 selectChange2(e){ // 选择职位类别后
+						 //console.log('val', e);
+					 }
+			 }
+		  };
+		 Vue.createApp(app)
+			  .use(nutui)
+			  .mount("#app");
+     </script>
+</body>
+</html>
